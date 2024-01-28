@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+</head>
+<body>
+<h1>Добавление пользователя</h1>
+<form th:action="@{/admin/add}" method="post" th:object="${user}">
+    <p><label for="username">username</label></p>
+    <p><input type="text" id="username" name="username" required></p>
+    <p><label for="password">password</label></p>
+    <p><input type="password" id="password" name="password" th:field="*{password}" required></p>
+    <p><label for="yearOfBirth">yearOfBirth</label></p>
+    <p><input type="text" id="yearOfBirth" name="yearOfBirth"></p>
+
+    <p>
+        <input type="submit" value="add">
+    </p>
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+</form>
+<p>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="logout"/>
+</form>
+</p>
+</body>
+</html>
